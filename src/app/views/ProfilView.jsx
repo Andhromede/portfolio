@@ -3,6 +3,13 @@ import "../assets/css/error.css";
 import SpaceTripCard from "../components/layouts/SpaceTripCard";
 import ButtonTechno from "../components/layouts/ButtonTechno";
 import Avatar from "../assets/images/avatar.png";
+import { MdOutlineExitToApp } from "react-icons/md";
+import panneauXp from "../assets/images/panneau3.jpg";
+import panneauFormation from "../assets/images/panneau.jpg";
+import BlocDates from "../components/layouts/BlocDates";
+import BlocText from "../components/layouts/BlocText";
+
+
 
 const ProfilView = () => {
     return (
@@ -23,21 +30,6 @@ const ProfilView = () => {
                     <div className="col-span-12 mx-auto">
                         <input type="text" className="bg-black placeholder-jaune sm:text-[0.8em] md:text-[1.3em] h-[1.8em] text-center mt-6" disabled placeholder="Développeuse d'applications" />
                     </div>
-
-                    {/* <div className="col-span-12 mx-auto">
-                        <label htmlFor="tel" className="block text-[0.8em] text-sm text-white">Tel</label>
-                        <input type="text" className="bg-black rounded-lg placeholder-jaune md:pl-3 sm:pl-1 sm:text-[0.8em] md:text-[1.3em] h-[1.8em]" disabled id="tel" placeholder="06.72.40.83.02" />
-                    </div>
-
-                    <div className="col-span-12 mx-auto">
-                        <label htmlFor="email" className="block text-[0.8em] text-sm text-white">email</label>
-                        <input type="text" className="bg-black rounded-lg placeholder-jaune md:pl-3 sm:pl-1sm:text-[0.8em] md:text-[1.3em] h-[1.8em]" disabled id="email" placeholder="n.gibilaro@hotmail.com" />
-                    </div>
-
-                    <div className="col-span-12 mx-auto">
-                        <label htmlFor="email" className="block text-[0.8em] text-sm text-white">email</label>
-                        <input type="text" className="bg-black rounded-lg placeholder-jaune md:pl-3 sm:pl-1 sm:text-[0.8em] md:text-[1.3em] h-[1.8em]" disabled id="email" placeholder="n.gibilaro@hotmail.com" />
-                    </div> */}
                 </div>
             </div>
 
@@ -69,42 +61,59 @@ const ProfilView = () => {
                     </div>
 
                     <div className="bg-gris-dark text-white grid grid-cols-12 py-1 mt-3">
-                        <div className="col-span-6 text-center">{new Date(new Date().getTime() - (86400 * 5000)).toLocaleDateString('fr-fr', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</div>
+                        {/* <div className="col-span-6 text-center">{new Date(new Date().getTime() - (86400 * 5000)).toLocaleDateString('fr-fr', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</div> */}
+                        <div className="col-span-6 text-center">Mon parcours</div>
 
                         <div className="col-span-6 text-center flex mx-auto hover:text-jaune">
-                            <span>Lire plus</span>
+                            <span>{new Date(new Date().getTime() - (86400 * 5000)).toLocaleDateString('fr-fr', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</span>
                             {/* <span className="my-auto ml-2 "><MdOutlineExitToApp /></span> */}
                         </div>
                     </div>
 
-                    <div className="text-white grid grid-cols-11 pt-0">
+                    <div className="text-white pt-0">
 
                         {/* SECTION FORMATIONS */}
-                        <div className="col-span-12 lg:col-span-5 ">
-                            {/* <img className="" src={panneauXp} alt="bandeau jdr" /> */}
+                        {/* <div className="col-span-12 lg:col-span-5 "> */}
+                        <div className="col-span-11 mx-auto">
+                            <img className="mx-auto" src={panneauXp} alt="bandeau jdr" />
 
                             <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2023</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(4mois)</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">- Incubateur d'Euratech.</div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        1. Application de voyages en Nodes/JS/NoSQL. Travail en équipe avec la méthode Agile.
-                                        2. Outils : Jira, Gitlab, Stripe, Google Auth & Recaptcha, redux, yup, Joi ...
-                                    </div>
-                                </div>
+                                <BlocDates date="2023" duree="(4mois)" />
+                                <BlocText title="Incubateur d'Euratech." tabText={["1. Application de voyages en Nodes/JS/NoSQL. Travail en équipe avec la méthode Agile.", "2. Outils : Jira, Gitlab, Stripe, Google Auth & Recaptcha, redux, yup, Joi ..."]} />
                             </div>
 
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2022" duree="(8mois)" />
+                                <BlocText title="Diplôme de CDA" lvl="Bac+4" tabText={["1. Conception & développement d'une application Vetolib en React/Node/SQL.", "2. Site e-commerce de vente de vêtement en React/.Net/SQL."]} />
+                            </div>
 
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2022" duree="(4mois)" />
+                                <BlocText title="MS PHP/Symfony & React/JS" text="Application mobile pour la maison des association de Roubaix et site e-commerce complet (Pizza Lorenzo)." />
+                            </div>
+
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2021" duree="(8mois)" />
+                                <BlocText title="Diplôme développeur Web" lvl="Bac+2" text="Conception et développement d'un reseau social pour les voyageurs en PHP natif/SQL..." />
+                            </div>
+
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2021" duree="(4mois)" />
+                                <BlocText title="Techniques de base du développement" text=" HTML / CSS / Javascript" />
+                            </div>
+
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2001"/>
+                                <BlocText title="Formation en informatique" lvl="Bac" text="Montage et dépannage informatique, Création de site web, installation reseaux ..."/>
+                            </div>
+
+                            <div className="bg-gris-darkLight h-[25px]" />
 
                             <div className="bg-gris-dark text-white grid grid-cols-12 py-1 mt-3">
-                                <div className="col-span-8 text-center">{new Date(new Date().getTime() - (86400 * 80000)).toLocaleDateString('fr-fr', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</div>
-                                <div className="col-span-4 text-center flex mx-auto hover:text-jaune">
-                                    <span>Lire plus</span>
-                                    {/* <span className="my-auto ml-2 "><MdOutlineExitToApp /></span> */}
+                                <div className="col-span-6 text-center">Experience</div>
+
+                                <div className="col-span-6 text-center flex mx-auto hover:text-jaune">
+                                    <span>{new Date(new Date().getTime() - (86400 * 80000)).toLocaleDateString('fr-fr', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</span>
                                 </div>
                             </div>
                         </div>
@@ -112,30 +121,47 @@ const ProfilView = () => {
                         <div className="col-span-1"></div>
 
                         {/* SECTION EXPERIENCES */}
-                        <div className="col-span-12 lg:col-span-5">
-                            {/* <img className="" src={panneauFormation} alt="bandeau jdr" /> */}
+                        <div className="col-span-11 mx-auto">
+                            <img className="mx-auto" src={panneauFormation} alt="bandeau jdr" />
 
                             <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2022</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(4mois)</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">- Conception & développement d'application pour Delpharm</div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        Application de gestion de rapport d'accident, incident et de situations dangeureuse en React et .Net.
-                                    </div>
-                                </div>
+                                {/* <BlocDates date="2022" duree="(4mois)"/> */}
+                                <BlocDates date="2022"/>
+                                <BlocText title="Conception & développement d'application pour Delpharm" text="Application de gestion de rapport d'accident, incident et de situations dangeureuse en React et .Net." />
                             </div>
 
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2021"/>
+                                <BlocText title="Site e-commerce pour Labossa" text=" Conception et développement d'une application en PHP et Symfony 5. API d'authentification sécurisé avec section d'administration et tests fonctionnels." />
+                            </div>
 
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2021"/>
+                                <BlocText title="Conception et développement d'un reaseau social d'entreprise" text="Conception et développement d'une plateforme web (avec options d'accessibilités aux personnes en situation de handicap) pour un groupement d'entreprises en PHP/Symfony." />
+                            </div>
+
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2018"/>
+                                <BlocText title="Gérante remplacante dans un restaurant" tabText={["1. Gestion et chef de cuisine dans un restaurant BIO.", "2. Chef cuisinière pendant la grande braderie de lille (250 pers/serv).", "3. Cuisinière à la Rencontre Internationale des Cerfs-Volants (400 pers/serv)."]} />
+                            </div>
+
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2008"/>
+                                <BlocText title="Collaboratrice d'edition de projet collaboratif" text="Relecture des textes, illustration et infographie (1ère et 4ème de couvertures, côtes intérieurs et extérieur etc), création du dossier de fabrication, bon à tirer, obtention de numero ISBN, envoi d'un l'exemplaire en bibliothèque nationale ..." />
+                            </div>
+
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="1999"/>
+                                <BlocText title="Tenue d'un Relay H" text="Gestion d'un magasin de tabac/presse : ouverture/fermeture, vente, commande et gestion des stocks, tenue de caisse ..."/>
+                            </div>
+
+                            <div className="bg-gris-darkLight h-[25px]" />
 
                             <div className="bg-gris-dark text-white grid grid-cols-12 py-1 mt-3">
                                 <div className="col-span-8 text-center">{new Date(new Date().getTime() - (86400 * 70000)).toLocaleDateString('fr-fr', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</div>
                                 <div className="col-span-4 text-center flex mx-auto hover:text-jaune">
                                     <span>Lire plus</span>
-                                    {/* <span className="my-auto ml-2 "><MdOutlineExitToApp /></span> */}
+                                    <span className="my-auto ml-2 "><MdOutlineExitToApp /></span>
                                 </div>
                             </div>
 
@@ -148,7 +174,7 @@ const ProfilView = () => {
             </div>
 
 
-        </div>
+        </div >
     );
 };
 

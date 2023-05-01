@@ -6,7 +6,8 @@ import panneauXp from "../assets/images/panneau3.jpg";
 import panneauFormation from "../assets/images/panneau.jpg";
 // import { IoExitOutline } from "react-icons/io";
 import { MdOutlineExitToApp } from "react-icons/md";
-
+import BlocDates from "../components/layouts/BlocDates";
+import BlocText from "../components/layouts/BlocText";
 
 const HomeView = () => {
     // useEffect(() => {
@@ -25,10 +26,10 @@ const HomeView = () => {
             <div className="bg-gris-light col-span-12 sm:col-span-8 lg:col-span-9 text-xl text-gris pl-6 pt-6 font-bold ">
                 <div className="text-[1.8em]">Conception et développement d'applications</div>
 
-                <hr className="border-b-2 border-jaune-dark w-1/5 mt-3" />
+                <hr className="border-b-2 border-jaune-dark w-1/5 mt-3"/>
 
                 <div className="mr-[2em] mt-5 bg-gris-medium">
-                    <img className="" src={Banniere} alt="bandeau jdr" />
+                    <img className="" src={Banniere} alt="bandeau jdr"/>
 
                     <div className="text-gris text-2xl ml-5 font-bold mt-3">à propos</div>
 
@@ -50,7 +51,7 @@ const HomeView = () => {
 
                     <div className="bg-gris-dark text-white grid grid-cols-12 py-1 mt-3">
                         <div className="col-span-6 text-center">{new Date(new Date().getTime() - (86400 * 5000)).toLocaleDateString('fr-fr', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</div>
-                        
+
                         <div className="col-span-6 text-center flex mx-auto hover:text-jaune">
                             <span>Lire plus</span>
                             <span className="my-auto ml-2 "><MdOutlineExitToApp /></span>
@@ -61,84 +62,36 @@ const HomeView = () => {
 
                         {/* SECTION FORMATIONS */}
                         <div className="col-span-12 lg:col-span-5 ">
-                            <img className="" src={panneauXp} alt="bandeau jdr"/>
+                            <img className="" src={panneauXp} alt="bandeau jdr" />
 
                             <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2023</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(4mois)</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">- Incubateur d'Euratech.</div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        1. Application de voyages en Nodes/JS/NoSQL. Travail en équipe avec la méthode Agile.
-                                        2. Outils : Jira, Gitlab, Stripe, Google Auth & Recaptcha, redux, yup, Joi ...
-                                    </div>
-                                </div>
+                                <BlocDates date="2023" duree="(4mois)" />
+                                <BlocText title="Incubateur d'Euratech." tabText={["1. Application de voyages en Nodes/JS/NoSQL. Travail en équipe avec la méthode Agile.", "2. Outils : Jira, Gitlab, Stripe, Google Auth & Recaptcha, redux, yup, Joi ..."]} />
                             </div>
 
                             <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2022</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(8mois)</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">
-                                        <span>- Diplôme de CDA</span>
-                                        <span className="text-jaune"> (Bac +4)</span>
-                                    </div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        1. Conception & développement d'une application Vetolib en React/Node/SQL.
-                                        2. Site e-commerce de vente de vêtement en React/.Net/SQL.
-                                    </div>
-                                </div>
+                                <BlocDates date="2022" duree="(8mois)" />
+                                <BlocText title="Diplôme de CDA" lvl="Bac+4" tabText={["1. Conception & développement d'une application Vetolib en React/Node/SQL.", "2. Site e-commerce de vente de vêtement en React/.Net/SQL."]} />
                             </div>
 
                             <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2022</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(4mois)</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">- MS PHP/Symfony & React/JS</div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        Application mobile pour la maison des association de Roubaix
-                                        et site e-commerce complet (Pizza Lorenzo).
-                                    </div>
-                                </div>
+                                <BlocDates date="2022" duree="(4mois)" />
+                                <BlocText title="MS PHP/Symfony & React/JS" text="Application mobile pour la maison des association de Roubaix et site e-commerce complet (Pizza Lorenzo)." />
                             </div>
 
                             <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2021</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(8mois)</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">
-                                        <span>- Diplôme développeur Web </span>
-                                        <span className="text-jaune pl-2">(Bac +2)</span>
-                                    </div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        Conception et développement d'un reseau social pour les voyageurs en PHP natif/SQL.
-                                    </div>
-                                </div>
+                                <BlocDates date="2021" duree="(8mois)" />
+                                <BlocText title="Diplôme développeur Web" lvl="Bac+2" text="Conception et développement d'un reseau social pour les voyageurs en PHP natif/SQL..." />
                             </div>
 
                             <div className="col-span-9 grid grid-cols-12 items-start my-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2021</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(4mois)</div>
-                                </div>
+                                <BlocDates date="2021" duree="(4mois)" />
+                                <BlocText title="Techniques de base en développement" text=" HTML / CSS / Javascript" />
+                            </div>
 
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold ">
-                                        <span>- Techniques de base du développement </span>
-                                    </div>
-                                </div>
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2001" />
+                                <BlocText title="Formation en informatique" lvl="Bac" text="Montage et dépannage informatique, Création de site web, installation reseaux ..." />
                             </div>
 
                             <div className="bg-gris-darkLight h-[25px]" />
@@ -159,77 +112,35 @@ const HomeView = () => {
                             <img className="" src={panneauFormation} alt="bandeau jdr" />
 
                             <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2022</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(4mois)</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">- Conception & développement d'application pour Delpharm</div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        Application de gestion de rapport d'accident, incident et de situations dangeureuse en React et .Net.
-                                    </div>
-                                </div>
+                                {/* <BlocDates date="2022" duree="(4mois)"/> */}
+                                <BlocDates date="2022" />
+                                <BlocText title="Conception & développement d'application pour Delpharm" text="Application de gestion de rapport d'accident, incident et de situations dangeureuse en React et .Net." />
                             </div>
 
                             <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2021</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(3mois)</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">
-                                        <span>- Site e-commerce pour Labossa</span>
-                                    </div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        Conception et développement d'une application en PHP et Symfony 5. API d'authentification
-                                        sécurisé avec section d'administration et tests fonctionnels.
-                                    </div>
-                                </div>
+                                <BlocDates date="2021" />
+                                <BlocText title="Site e-commerce pour Labossa" text=" Conception et développement d'une application en PHP et Symfony 5. API d'authentification sécurisé avec section d'administration et tests fonctionnels." />
                             </div>
 
                             <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2021</div>
-                                    <div className="col-span-12 text-gris font-bold text-[0.8em]">(3mois)</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">- Conception et développement d'un reaseau social d'entreprise</div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        Refonte complète d'une plateforme de groupement d'entreprise avec fonctionnalité d'accessibilité aux personnes
-                                        en situation de handicap en PHP/Symfony.
-                                    </div>
-                                </div>
+                                <BlocDates date="2021" />
+                                <BlocText title="Conception et développement d'un reaseau social d'entreprise" text="Conception et développement d'une plateforme web (avec options d'accessibilités aux personnes en situation de handicap) pour un groupement d'entreprises en PHP/Symfony." />
                             </div>
 
-                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2018</div>
-                                </div>
-
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold">
-                                        <span>- Gérante remplacante </span>
-                                    </div>
-                                    <div className="col-span-12 text-gris-darkLight pl-2 text-justify text-[0.9em] italic">
-                                        Chef de cuisine, service, commandes, tenue de caisse et de stock ...
-                                    </div>
-                                </div>
+                            <div className="col-span-9 grid grid-cols-12 items-start mt-5 mb-2 pl-1 pr-5">
+                                <BlocDates date="2018" />
+                                <BlocText title="Gérante remplacante dans un restaurant" tabText={["1. Gestion et chef de cuisine dans un restaurant BIO.", "2. Chef cuisinière pendant la grande braderie de lille (250 pers/serv).", "3. Cuisinière à la Rencontre Internationale des Cerfs-Volants (400 pers/serv)."]} />
                             </div>
 
-                            <div className="col-span-9 grid grid-cols-12 items-start my-5 pl-1 pr-5">
-                                <div className="col-span-2 grid grid-cols-12 text-center">
-                                    <div className="col-span-12 text-jaune font-bold text-[1.3em]">2008</div>
-                                </div>
+                            {/* <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="2008"/>
+                                <BlocText title="Collaboratrice d'edition de projet collaboratif" text="Relecture des textes, illustration et infographie (1ère et 4ème de couvertures, côtes intérieurs et extérieur etc), création du dossier de fabrication, bon à tirer, obtention de numero ISBN, envoi d'un l'exemplaire en bibliothèque nationale ..." />
+                            </div> */}
 
-                                <div className="col-span-10 text-center text-start grid grid-cols-12">
-                                    <div className="col-span-12 text-gris text-md font-bold ">
-                                        <span>- Collaboratrice d'edition de projet collaboratif </span>
-                                    </div>
-                                </div>
-                            </div>
+                            {/* <div className="col-span-9 grid grid-cols-12 items-start mt-5 pl-1 pr-5">
+                                <BlocDates date="1999"/>
+                                <BlocText title="Tenue d'un Relay H" text="Gestion d'un magasin de tabac/presse : ouverture/fermeture, vente, commande et gestion des stocks, tenue de caisse ..."/>
+                            </div> */}
 
                             <div className="bg-gris-darkLight h-[25px]" />
 
@@ -274,7 +185,7 @@ const HomeView = () => {
                 <div className="my-5 grid grid-cols-12">
                     <div className="ml-5 col-span-12 font-bold text-xl">BEST PLAYERS</div>
 
-                    <ButtonTechno title="React_ion" nbr="1" classe="bg-jaune mr-2"/>
+                    <ButtonTechno title="React_ion" nbr="1" classe="bg-jaune mr-2" />
                     <ButtonTechno title="Node_ule78" nbr="2" classe="bg-gray-500 mr-2" />
                     <ButtonTechno title="Js_ze1" nbr="3" classe="bg-orange-600 mr-2" />
                     <ButtonTechno title="Php_killer" nbr="4" classe="mr-2" />
